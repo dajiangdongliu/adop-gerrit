@@ -76,11 +76,11 @@ if [ "$1" = '/var/gerrit/gerrit-start.sh' ]; then
   [ -z "${JAVA_SLAVE}" ] || git config -f "${GERRIT_SITE}/etc/gerrit.config" container.slave "${JAVA_SLAVE}"
 
   #Section sendemail
-  if [ -z "${SMTP_SERVER}" ]; then
-    git config -f "${GERRIT_SITE}/etc/gerrit.config" sendemail.enable false
-  else
-    git config -f "${GERRIT_SITE}/etc/gerrit.config" sendemail.smtpServer "${SMTP_SERVER}"
-  fi
+  #if [ -z "${SMTP_SERVER}" ]; then
+    git config -f "${GERRIT_SITE}/etc/gerrit.config" sendemail.enable true
+  #else
+    #git config -f "${GERRIT_SITE}/etc/gerrit.config" sendemail.smtpServer "${SMTP_SERVER}"
+  #fi
 
   #Section plugins
   git config -f "${GERRIT_SITE}/etc/gerrit.config" plugins.allowRemoteAdmin true
